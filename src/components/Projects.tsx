@@ -84,24 +84,24 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 cursor-target">
             <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             A collection of backend projects showcasing my expertise in building scalable, efficient, and secure applications
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -112,25 +112,25 @@ const Projects = () => {
               whileHover={{ y: -5 }}
               className="h-full"
             >
-              <Card className="glass card-shadow hover:glow transition-smooth h-full flex flex-col">
+              <Card className="glass card-shadow hover:glow transition-smooth h-full flex flex-col cursor-target">
                 <CardHeader>
-                  <div className="flex items-start justify-between gap-4">
-                    <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+                  <div className="flex items-start justify-between gap-3 sm:gap-4">
+                    <CardTitle className="text-lg sm:text-xl font-bold">{project.title}</CardTitle>
                     <Badge 
                       variant={project.status === "In Progress" ? "default" : "secondary"}
-                      className={project.status === "In Progress" ? "bg-primary" : ""}
+                      className={`text-xs ${project.status === "In Progress" ? "bg-primary" : ""}`}
                     >
                       {project.status}
                     </Badge>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
-                  <div className="space-y-4 flex-1">
+                  <div className="space-y-3 sm:space-y-4 flex-1">
                     <div>
-                      <h4 className="font-semibold mb-2 text-sm">Key Features:</h4>
+                      <h4 className="font-semibold mb-2 text-xs sm:text-sm">Key Features:</h4>
                       <ul className="space-y-1">
                         {project.features.slice(0, 3).map((feature, idx) => (
                           <li key={idx} className="text-muted-foreground text-xs flex items-start gap-2">
@@ -142,13 +142,13 @@ const Projects = () => {
                     </div>
                     
                     <div>
-                      <h4 className="font-semibold mb-2 text-sm">Technologies:</h4>
+                      <h4 className="font-semibold mb-2 text-xs sm:text-sm">Technologies:</h4>
                       <div className="flex flex-wrap gap-1">
                         {project.technologies.map((tech, idx) => (
                           <Badge 
                             key={idx} 
                             variant="outline" 
-                            className="text-xs glass hover:bg-primary/20 transition-smooth"
+                            className="text-xs glass hover:bg-primary/20 transition-smooth cursor-target"
                           >
                             {tech}
                           </Badge>
@@ -157,26 +157,26 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-2 mt-6 pt-4 border-t border-border/50">
+                  <div className="flex gap-2 mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-border/50">
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="flex-1 glass hover:bg-primary/20"
+                      className="flex-1 glass hover:bg-primary/20 cursor-target text-xs sm:text-sm"
                       asChild
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
+                        <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                         Code
                       </a>
                     </Button>
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="flex-1 glass hover:bg-primary/20"
+                      className="flex-1 glass hover:bg-primary/20 cursor-target text-xs sm:text-sm"
                       asChild
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                         Demo
                       </a>
                     </Button>

@@ -34,25 +34,25 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-20 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 cursor-target">
             <span className="text-gradient">About Me</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             A dedicated backend developer passionate about creating efficient, scalable solutions. 
             With hands-on experience in modern technologies and a strong foundation in software engineering principles.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
@@ -61,13 +61,13 @@ const About = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="glass card-shadow hover:glow transition-smooth h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 flex justify-center">
+              <Card className="glass card-shadow hover:glow transition-smooth h-full cursor-target">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="mb-3 sm:mb-4 flex justify-center">
                     {achievement.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{achievement.title}</h3>
-                  <p className="text-muted-foreground text-sm">{achievement.description}</p>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2">{achievement.title}</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">{achievement.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -81,8 +81,8 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold mb-8">Technical Skills</h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 cursor-target">Technical Skills</h3>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto px-4">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill}
@@ -94,7 +94,7 @@ const About = () => {
               >
                 <Badge 
                   variant="secondary" 
-                  className="glass text-sm py-2 px-4 hover:bg-primary/20 transition-smooth"
+                  className="glass text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4 hover:bg-primary/20 transition-smooth cursor-target"
                 >
                   {skill}
                 </Badge>
