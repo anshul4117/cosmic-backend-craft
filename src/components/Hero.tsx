@@ -28,26 +28,26 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 gradient-secondary rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex items-center justify-center min-h-screen">
+        <div className="w-full max-w-5xl mx-auto pt-16 pb-24 sm:pt-20 sm:pb-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="space-y-6 sm:space-y-8"
+          className="space-y-6 sm:space-y-8 flex flex-col justify-center items-center"
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold cursor-target"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold cursor-target text-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <span className="text-gradient">Backend Developer</span>
-            <br />
-            <span className="text-foreground">Building Scalable Solutions</span>
+            <span className="text-gradient block">Backend Developer</span>
+            <span className="text-foreground block mt-2">Building Scalable Solutions</span>
           </motion.h1>
 
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -58,14 +58,14 @@ const Hero = () => {
           </motion.p>
 
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2 w-full max-w-md sm:max-w-none mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
             <Button 
               size="lg" 
-              className="gradient-primary hover:opacity-90 text-white border-0 glow cursor-target w-full sm:w-auto"
+              className="gradient-primary hover:opacity-90 text-white border-0 glow cursor-target w-full sm:w-auto min-w-[140px]"
               onClick={() => scrollToSection('projects')}
             >
               View My Work
@@ -73,7 +73,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="glass hover:bg-primary/10 cursor-target w-full sm:w-auto"
+              className="glass hover:bg-primary/10 cursor-target w-full sm:w-auto min-w-[140px]"
               onClick={() => scrollToSection('contact')}
             >
               Get In Touch
@@ -109,9 +109,10 @@ const Hero = () => {
             </a>
           </motion.div>
         </motion.div>
+        </div>
 
         <motion.div 
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.5 }}
