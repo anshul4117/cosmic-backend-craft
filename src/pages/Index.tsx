@@ -21,8 +21,7 @@ const Index = () => {
           <ScrollingBackground variant="dots" speed={0.5} opacity={0.05} />
           <About />
         </section>
-        <section id="experience" className="relative">
-          <ScrollingBackground variant="waves" speed={0.8} opacity={0.08} />
+        <section id="experience">
           <Experience />
         </section>
         <section id="projects" className="relative">

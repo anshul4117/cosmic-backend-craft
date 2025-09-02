@@ -31,11 +31,19 @@ const InteractiveParticles = ({
   particleTransparency = true,
   disableRotation = false
 }: InteractiveParticlesProps) => {
+  const [isMobile, setIsMobile] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef<number>();
   const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -51,9 +59,10 @@ const InteractiveParticles = ({
 
     const createParticles = () => {
       const particles: Particle[] = [];
+      const particleCount = isMobile ? Math.min(count, 80) : count;
       
-      for (let i = 0; i < count; i++) {
-        const size = Math.random() * spread + 1;
+      for (let i = 0; i < particleCount; i++) {
+        const size = Math.random() * (isMobile ? spread * 0.6 : spread) + 1;
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -77,7 +86,7 @@ const InteractiveParticles = ({
           const dx = mouseRef.current.x - particle.x;
           const dy = mouseRef.current.y - particle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const maxDistance = baseSize;
+          const maxDistance = isMobile ? baseSize * 0.7 : baseSize;
 
           if (distance < maxDistance) {
             const force = (maxDistance - distance) / maxDistance;
