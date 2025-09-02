@@ -42,20 +42,20 @@ const Navigation = () => {
         isScrolled ? "glass card-shadow" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+        <div className="flex items-center justify-between h-14 sm:h-16 w-full">
+          {/* Portfolio Logo/Text - Left */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="font-bold text-lg sm:text-xl text-gradient cursor-target"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-bold text-lg sm:text-xl lg:text-2xl text-gradient cursor-target flex-shrink-0"
           >
             Portfolio
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {/* Desktop Navigation - Right */}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 flex-shrink-0">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
